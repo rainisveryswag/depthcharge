@@ -1,9 +1,6 @@
 # DepthCharge — Static Analysis Module
 
-**Module owner:** Yousra Zarri  
-**Project:** DepthCharge — Supply Chain Attack Detector  
-**Institution:** ENSA Marrakech — GCDSTE  
-**Academic year:** 2025–2026
+**Module owner:** Yousra aka rainisveryswag
 
 ---
 
