@@ -3,9 +3,6 @@
 **Détecteur d'Attaques sur la Chaîne d'Approvisionnement Logicielle**  
 Supply Chain Attack Detector for Python (PyPI) and JavaScript (npm) packages
 
-> ENSA Marrakech — Génie Cyberdéfense et Systèmes de Télécommunications Embarqués (GCDSTE)  
-> Projet de Fin de Semestre — Année académique 2025–2026  
-> Encadrant : Abdelghafour Atlas
 
 ---
 
