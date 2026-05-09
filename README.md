@@ -448,64 +448,9 @@ unzip <package>-*.whl -d ./tests/benign/<package>/
 
 ---
 
-## 12. Test Results
 
-### Static Analysis — validated on real malicious packages
 
-| Package | Attack Technique | Score | Verdict |
-|---------|-----------------|-------|---------|
-| `androidspyeye` | exec + high entropy payload in setup.py | 100 | 🔴 block |
-| `detection-telegram` | exec + high entropy payload in setup.py | 100 | 🔴 block |
-| `distpro` | MAC address theft + system fingerprinting | 90 | 🔴 block |
-| `discconnect` | Environment variable exfiltration | 75 | 🔴 block |
-| `loggerbyxolo` | BlankOBF multi-layer obfuscation | 70 | 🔴 block |
-| `colorating` | chr() map obfuscation in setup.py | 70 | 🔴 block |
-| `exo-steal` | Exodus wallet theft via Telegram bot | 70 | 🔴 block |
-| `colurama` | base64 + exec obfuscation | 60 | 🟡 review |
-
-### Legitimate packages — false positive check
-
-| Package | Score | Verdict |
-|---------|-------|---------|
-| `django` | 0 | 🟢 allow |
-| `cryptography` | 0 | 🟢 allow |
-| `requests` | 20 | 🟢 allow |
-| `flask` | 20 | 🟢 allow |
-| `numpy` | 20 | 🟢 allow |
-
-**Static module detection rate:** 8/8 malicious packages detected (100%)  
-**False positive rate:** 0/5 legitimate packages incorrectly blocked (0%)
-
----
-
-## 13. Scope and Limitations
-
-### In scope (MVP)
-
-- Static analysis of PyPI Python packages
-- Behavioral analysis in an isolated Docker sandbox
-- Reputation and metadata verification via PyPI API, OSV, NVD
-- Risk score aggregation
-- Web dashboard and CLI
-- Optional GitHub Actions CI/CD integration
-
-### Out of scope (MVP)
-
-- Package managers other than PyPI and npm (Cargo, Maven, NuGet)
-- Analysis of compiled binary artifacts (DLL, ELF) — partial YARA coverage only
-- Automatic remediation (package removal or replacement)
-- Continuous real-time monitoring of package registries
-
-### Known limitations
-
-- **Runtime-only payloads** — Malware downloading a second-stage payload at runtime cannot be detected statically
-- **Advanced sandbox evasion** — Sophisticated malware may detect the sandbox and suppress behavior
-- **Python files only** — Static analysis covers `.py` files; compiled extensions are not analyzed
-- **Score calibration** — Weights calibrated on a limited test set; larger datasets would improve accuracy
-
----
-
-## 14. References
+## 12. References
 
 1. Freund, J. (2024). *The XZ Utils backdoor: a timeline*. Openwall Security.
 2. CISA. (2020). *Alert AA20-352A: APT Compromise via SolarWinds Orion*. US-CERT.
@@ -514,6 +459,3 @@ unzip <package>-*.whl -d ./tests/benign/<package>/
 5. OWASP. (2023). *Software Component Verification Standard (SCVS) v1.0*.
 6. DataDog. *Malicious Software Packages Dataset*. `github.com/DataDog/malicious-software-packages-dataset`
 
----
-
-*DepthCharge — ENSA Marrakech 2025–2026*
