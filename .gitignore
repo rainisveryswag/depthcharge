@@ -1,0 +1,9 @@
+data/pypi_malware_archive/
+tests/benign/
+__pycache__/
+*.pyc
+*.whl
+*.tar.gz
+*.zip
+.DS_Store
+**/.DS_Store
