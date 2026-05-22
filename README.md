@@ -279,18 +279,21 @@ depthcharge/
 │   │   │   └── suspicious_subprocess.yar
 │   │   └── README.md
 │   ├── sandbox/                   # Module 2 — Mohammed
+│   │   └── sandbox_module.py      # Behavioral analysis & strace parsing
 │   ├── reputation/                # Module 3 — Wiam
 │   └── dashboard/                 # Module 4 — Yasser
 ├── shared/
 │   ├── schema.py                  # Shared JSON schema / dataclasses
 │   └── fetcher.py                 # PyPI/npm package downloader
 ├── tests/
+│   ├── test_sandbox.py            # Integration tests for sandbox module
 │   ├── malicious/                 # Malicious samples (gitignored)
 │   └── benign/                    # Legitimate packages (gitignored)
 ├── data/
 │   └── pypi_malware_archive/      # Local malware archive (gitignored)
 ├── docker/
 │   └── sandbox/                   # Sandbox Docker image
+│       └── Dockerfile             # Alpine-based strace environment
 ├── .gitignore
 └── README.md
 ```
