@@ -242,7 +242,7 @@ Each module contributes a weighted signal to the final score (0–100):
 |--------|--------|----------|-----------|
 | Obfuscated code / high entropy | Static | High | 25 |
 | Dangerous AST patterns | Static | High | 20 |
-| Suspicious runtime behavior | Sandbox | High | 25 |
+| Suspicious runtime behavior | Sandbox | Critical | 40 |
 | Typosquatting detected | Reputation | Medium | 15 |
 | Suspicious metadata | Reputation | Low | 10 |
 | Known malware database match | Database | Critical | +50 |
@@ -342,6 +342,17 @@ python modules/dashboard/cli.py scan --lockfile requirements.txt --threshold 70
 ```bash
 cd modules/static/
 python static_module.py /path/to/extracted/package package_name version
+```
+
+### Behavioral Sandbox analysis only (Mohammed's Module)
+
+If you only want to test the dynamic behavior of a package without running the full pipeline:
+```bash
+# Set up the docker image first
+docker build -t depthcharge-sandbox docker/sandbox/
+
+# Run the test suite against known good and bad packages
+python tests/test_sandbox.py
 ```
 
 ### GitHub Actions
